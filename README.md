@@ -64,12 +64,16 @@ SimpleHillClimbing()
 <h2>Sample Input and Output</h2>
 <h2>Sample String:</h2>Welcome
 <h2>Output:</h2>
+
 Enter target: welcome
-<img width="228" height="397" alt="image" src="https://github.com/user-attachments/assets/558ca129-d248-45d8-9eea-a5d2cec020d0" />
-<img width="106" height="413" alt="Screenshot 2025-10-24 133512" src="https://github.com/user-attachments/assets/696b9d64-37e9-484c-a635-87f55123a656" />
-<img width="122" height="403" alt="Screenshot 2025-10-24 133519" src="https://github.com/user-attachments/assets/af44096d-92f4-4ec0-ba06-e7373b31ed5d" />
+
+<img width="228" height="397" alt="image" src="https://github.com/user-attachments/assets/558ca129-d248-45d8-9eea-a5d2cec020d0" /> 
+
+
+
 <img width="187" height="407" alt="image" src="https://github.com/user-attachments/assets/c1884321-b865-48fc-96d1-71f1ef1fd17b" />
 
 ​
-RESULT
-Thus the program to Implement Simple Hill Climbing Algorithm has been executed successfully.
+RESULT:
+
+   Thus the program to Implement Simple Hill Climbing Algorithm has been executed successfully.
