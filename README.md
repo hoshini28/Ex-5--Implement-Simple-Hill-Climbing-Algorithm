@@ -1,6 +1,6 @@
 <h1>ExpNo 5 : Implement Simple Hill Climbing Algorithm</h1> 
-<h3>Name:             </h3>
-<h3>Register Number:             </h3>
+<h3>Name:Hoshini S           </h3>
+<h3>Register Number:2305003006            </h3>
 <H3>Aim:</H3>
 <p>Implement Simple Hill Climbing Algorithm and Generate a String by Mutating a Single Character at each iteration </p>
 <h2> Theory: </h2>
@@ -40,61 +40,221 @@ Feedback is provided in terms of heuristic function
 
 ## PROGRAM
 ```python
-import random
-import string
-def generate_random_solution(answer):
-    l=len(answer)
-    return [random.choice(string.printable) for _ in range(l)]
-def evaluate(solution,answer):
-    print(solution)
-    target=list(answer)
-    diff=0
-    for i in range(len(target)):
-        s=solution[i]
-        t=target[i]
-        #to calculate the "difference" between two strings, character by character.
-        #ord(s) - ord(t) calculates the difference between the ASCII values of the characters s and t.
-         #abs() takes the absolute value of this difference to ensure that it is non-negative. This is important because the difference could be negative if s is less than t in terms of ASCII value.
-         #The absolute value ensures that the difference is always positive or zero.
-        diff += abs(ord(s) - ord(t))    return diff
-def mutate_solution(solution):
-    ind=random.randint(0,len(solution)-1)
-    solution[ind]=random.choice(string.printable)
-    return solution
-def SimpleHillClimbing():
-    answer="Artificial Intelligence"
-    best=generate_random_solution(answer)
-    best_score=evaluate(best,answer)
-    while True:
-       print("Score:", best_score, " Solution: ", "".join(best))  
-       if best_score == 0:
-           break
-       new_solution = mutate_solution(list(best))
-       score = evaluate(new_solution, answer)
-       if score < best_score:
-           best = new_solution
-           best_score = score
+import random, string
+
+target = input("Enter target: ")
+s = ''.join(random.choice(string.ascii_letters + ' ') for _ in target)
+
+def fit(x): return sum(a == b for a, b in zip(x, target))
+
+while s != target:
+    n = list(s)
+    n[random.randrange(len(n))] = random.choice(string.ascii_letters + ' ')
+    n = ''.join(n)
+    if fit(n) >= fit(s):
+        s = n
+        print(s)
+
+print("🎯 Final:", s)
+
 SimpleHillClimbing()
 ```
 
 <hr>
 <h2>Sample Input and Output</h2>
-<h2>Sample String:</h2> Artificial Intelligence
+<h2>Sample String:</h2>Welcome
 <h2>Output:</h2>
-Score: 643  Solution :  8RzF:oG ]%;CPORRMe!zGvk<br>
-Score: 609  Solution :  8RzF:oG ]%;CPqRRMe!zGvk<br>
-Score: 604  Solution :  8RzF:oG ]%;CPqRRMe!zGqk<br>
-Score: 594  Solution :  8RzF:oG ]%;CPqRRWe!zGqk<br>
-Score: 551  Solution :  8RzF:oGK]%;CPqRRWe!zGqk<br>
-Score: 551  Solution :  8RzF:oGK]%;CPqRRWe!zGqk<br>
-Score: 551  Solution :  8RzF:oGK]%;CPqRRWe!zGqk<br>
-Score: 551  Solution :  8RzF:oGK]%;CPqRRWe!zGqk<br>
-Score: 551  Solution :  8RzF:oGK]%;CPqRRWe!zGqk<br>
-....................................................<br>
-..................................................<br>
-................................................<br>
-Score: 1  Solution :  Artificial Intelligencf<br>
-Score: 1  Solution :  Artificial Intelligencf<br>
-Score: 1  Solution :  Artificial Intelligencf<br>
-Score: 1  Solution :  Artificial Intelligencf<br>
-Score: 0  Solution :  Artificial Intelligence<br>
+Enter target: welcome
+nwkqUgD
+nwkLUgD
+nwkLMgD
+nwkLMgP
+nwkLMMP
+nwkLqMP
+nwLLqMP
+nJLLqMP
+nJTLqMP
+QJTLqMP
+QZTLqMP
+QZTLqMM
+QZdLqMM
+RZdLqMM
+RZoLqMM
+RZoyqMM
+RZoyqMT
+RVoyqMT
+RVoyqMj
+RVoyCMj
+OVoyCMj
+OVoyCMO
+OVoyCMT
+OVtyCMT
+OVGyCMT
+OVGUCMT
+OVGUCfT
+OVGUFfT
+OVGUFfu
+OVGUXfu
+cVGUXfu
+cVGUpfu
+cVGUqfu
+cVGUqft
+cVGUqfh
+cVGUqf 
+cVGUqP 
+cVGUqPk
+cVGUqPm
+cVqUqPm
+cmqUqPm
+cOqUqPm
+cOeUqPm
+cOtUqPm
+cOtUqNm
+cOtUqNW
+cktUqNW
+qktUqNW
+qktUqHW
+qktUqHW
+qktUqHQ
+qktuqHQ
+qktuqHN
+qktuqHS
+qktuAHS
+qktuDHS
+oktuDHS
+okLuDHS
+okLuDdS
+okLuYdS
+XkLuYdS
+NkLuYdS
+NkLsYdS
+NkLSYdS
+NkLSYds
+NkLSYws
+NkLSYLs
+NkLSYLE
+mkLSYLE
+mkVSYLE
+mkVSuLE
+mkVSuLq
+mkVSuLm
+mkVSubm
+mkVSfbm
+mkVBfbm
+mkSBfbm
+mkSBfbs
+CkSBfbs
+CkSBJbs
+CkSBrbs
+CkYBrbs
+CFYBrbs
+CFvBrbs
+VFvBrbs
+VFvBrVs
+VFxBrVs
+VoxBrVs
+VoxBVVs
+VoxBVms
+SoxBVms
+SoZBVms
+roZBVms
+rUZBVms
+JUZBVms
+JVZBVms
+JjZBVms
+JjHBVms
+JXHBVms
+JpHBVms
+JpHFVms
+JpHFhms
+JpJFhms
+JpJAhms
+JBJAhms
+JBJAhmI
+JBJAhmV
+JBzAhmV
+JDzAhmV
+JDzAhmV
+JdzAhmV
+JdzApmV
+JdzJpmV
+JdlJpmV
+JelJpmV
+PelJpmV
+PeltpmV
+PelhpmV
+PelhNmV
+PelyNmV
+PelyqmV
+PelyqmI
+JelyqmI
+Jelyqms
+Jelyqme
+Jelyfme
+Jelefme
+Velefme
+Veleome
+Velyome
+jelyome
+jelFome
+jelnome
+Oelnome
+OelHome
+selHome
+WelHome
+XelHome
+XelDome
+MelDome
+lelDome
+EelDome
+EelDome
+XelDome
+Xelyome
+XelUome
+SelUome
+velUome
+velHome
+FelHome
+Fel ome
+tel ome
+gel ome
+pel ome
+pelqome
+zelqome
+zelEome
+aelEome
+JelEome
+JelOome
+QelOome
+Qeljome
+aeljome
+aelFome
+aelqome
+aelvome
+aelWome
+aelQome
+aelKome
+EelKome
+Eeljome
+Deljome
+Veljome
+Velsome
+Lelsome
+LelOome
+Lelnome
+LelAome
+LelAome
+LelWome
+Lelmome
+Nelmome
+yelmome
+yeleome
+Eeleome
+Eelcome
+Belcome
+jelcome
+Celcome
+Celcome
+welcome
+🎯 Final: welcome
+​
